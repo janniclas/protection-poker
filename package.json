@@ -6,7 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest --coverage",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
@@ -33,6 +33,7 @@
   },
   "jest": {
     "testResultsProcessor": "jest-sonar-reporter",
+    "coverageReporters": ["html", "json", "text-summary", "lcov"],
     "preset": "react-native",
     "moduleFileExtensions": [
       "ts",
