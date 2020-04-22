@@ -1,4 +1,4 @@
-# Protection Poker ![](https://github.com/janniclas/protection-poker/workflows/Node.js%20CI/badge.svg) ![](https://github.com/janniclas/protection-poker/workflows/SonarCloud%20Check/badge.svg)
+# Protection Poker ![](https://github.com/janniclas/protection-poker/workflows/SonarCloud%20Check/badge.svg)
 
 
 This project is currently in a pre alpha state and is used by me as a playground, for first experiments. 
