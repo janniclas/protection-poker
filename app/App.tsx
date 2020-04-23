@@ -115,5 +115,11 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
 });
+// screens/LinksScreen.js
 
-export default App;
+import StorybookUIRoot from '../storybook';
+
+export default function LinksScreen() {
+  return <StorybookUIRoot />;
+}
+
