@@ -13,7 +13,7 @@ import { FlatList } from 'react-native-gesture-handler';
   }
 
 export default ({elements}: {elements: { id: string; name: string; }[]}) => {
-
+    
     return (
         <FlatList
         data={elements}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, Button } from 'react-native';
 import AssetList from './AssetList';
 import AddAsset from './AddAsset';
 
@@ -22,13 +22,16 @@ export default () => {
         const newElement = {id: '' + Math.random(), name: name};
         // add asset to local data list
         setList([...listElements, newElement])
-        // push new asset to server
+        // TODO: push new asset to server
     }
 
     return (
         <View>
          <AssetList elements={listElements}/>
          <AddAsset addAssetHandler={handleAddAsset}/>
+         <Button title={"Start Rating"} onPress={()=> {
+             // TODO: navigate to rating 
+         }}/>
         </View>
     )
 
