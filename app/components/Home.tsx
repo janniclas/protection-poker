@@ -8,7 +8,7 @@ import {
 
 } from 'react-native';
 
-import { RULES, RootStackParamList} from './../config/Routes';
+import { RULES, RootStackParamList, GAME} from './../config/Routes';
 
 import {
   Colors,
@@ -24,10 +24,6 @@ type Props = {
   navigation: HomeScreenNavigationProp;
 };
 
-
-const newGame = () => {
-    console.log("new round clicked");
-  }
   
   const continueGame = () => {
     Alert.alert("This feature will be implemented at a later point in time. \n Check github.com/janniclas/protection-poker for updates.")
@@ -48,7 +44,10 @@ export default (prop: Props) => {
 
   return (
     <View style={styles.body}>
-      <Button onPress={newGame}
+      <Button onPress={ () => {
+          prop.navigation.navigate(GAME);
+      }
+      }
       title="New Game"
       />
       <Button onPress={continueGame}
