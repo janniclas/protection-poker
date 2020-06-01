@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native';
 import AssetList from './AssetList';
 import AddAsset from './AddAsset';
@@ -8,28 +8,29 @@ import AddAsset from './AddAsset';
     // the asset list should update asynchronously in realtime (use socket connection)
         // components: List of assets, text input and add new asset button
 // 2. provide button "ready for rating"
+
+const EMPTY_LIST: {id: string, name: string}[] = [
+
+];
+
 export default () => {
+    const [listElements, setList] = useState(EMPTY_LIST);
+
+
+    const handleAddAsset = (name: string) => {
+        // generate random id for new asset
+        const newElement = {id: '' + Math.random(), name: name};
+        // add asset to local data list
+        setList([...listElements, newElement])
+        // push new asset to server
+    }
 
     return (
         <View>
-         <AssetList elements={DATA}/>
-         <AddAsset/>
+         <AssetList elements={listElements}/>
+         <AddAsset addAssetHandler={handleAddAsset}/>
         </View>
     )
+
+
 }
-
-
-const DATA = [
-    {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      name: 'First Item',
-    },
-    {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      name: 'Second Item2',
-    },
-    {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      name: 'Third Item',
-    },
-  ];

@@ -1,21 +1,31 @@
 import React from 'react';
-import { View, TextInput } from 'react-native';
+import { View, TextInput, Button, Alert } from 'react-native';
 
 
 
-export default () => {
+export default ({addAssetHandler}: {addAssetHandler: (name: string) => void}) => {
     const defaultText = 'Enter Asset Name';
+    const isDefaultText = (text: string) => text == defaultText;
     const [value, onChangeText] = React.useState(defaultText);
     return (
         <View>
             <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
             onChangeText={text => onChangeText(text)}
-            onFocus={() => {if(value == defaultText) {
+            onFocus={() => {if(isDefaultText(value)) {
                 onChangeText('');
             }}}
             value={value}
             />
+            <Button title={'Add Asset'} onPress={() => {
+                if(!isDefaultText(value)) {
+                    addAssetHandler(value);
+                    onChangeText('');
+                } else {
+                    Alert.alert('Please provide a meaningfull asset name');
+                }
+            }}/>
+
         </View>
     )
 }
