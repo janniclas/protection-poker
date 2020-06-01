@@ -7,7 +7,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {HOME, RULES, RootStackParamList, GAME} from './config/Routes';
 import Home from './components/Home';
 import Rules from './components/Rules';
-import Game from './components/Game';
+import Game from './components/Game/Game';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
