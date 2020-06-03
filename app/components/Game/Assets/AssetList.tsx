@@ -1,23 +1,24 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
+import { Asset } from './model/Asset';
 
 
   
-  function Item( {title}: {title: string} ) {
+  function Item( {title, rating}: {title: string, rating?: number} ) {
     return (
       <View style={styles.item}>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title}>{title} {rating ? rating : ""}</Text>
       </View>
     );
   }
 
-export default ({elements}: {elements: { id: string; name: string; }[]}) => {
+export default ({elements}: {elements: Asset[]}) => {
     
     return (
         <FlatList
         data={elements}
-        renderItem={({ item }) => <Item title={item.name} />}
+        renderItem={({ item }) => <Item title={item.name} rating={item.valuePoint} />}
         keyExtractor={item => item.id}
       />
     )
