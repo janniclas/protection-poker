@@ -1,4 +1,4 @@
-export interface ElementHandler <T> {
+export interface ElementHandler<T> {
     addElement: (element: T) => void;
     updateElement: (index: number, element: T) => void;
     finish: () => void;

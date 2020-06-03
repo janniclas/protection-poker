@@ -1,1 +1,3 @@
-export interface Asset{ id: string; name: string; rating?: number, usedInFeature?: number[] }
+import { RatingElement } from '../../model/RatingElements';
+
+export interface Asset extends RatingElement { usedInFeature?: number[] }

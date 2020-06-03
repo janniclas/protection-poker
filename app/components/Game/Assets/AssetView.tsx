@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Asset } from './model/Asset';
 import { View, Button, Alert } from 'react-native';
-import AssetList from './AssetList';
 import AddAsset from './AddAsset';
 import Rating from './Rating';
 import { ElementHandler } from '../model/RatingElements';
+import { AssetList } from './AssetList';
 
 enum GameState {
     ADD_ASSETS,
@@ -23,7 +23,7 @@ export default ({ listElements, assetHandler }: { listElements: Asset[], assetHa
         case GameState.ADD_ASSETS:
             return (
                 <View>
-                    <AssetList elements={listElements} />
+                    <AssetList elements={listElements}/>
                     <AddAsset addAssetHandler={createAsset} />
                     <Button title={"Start Rating"} onPress={() => {
                         if (listElements.length > 0) {

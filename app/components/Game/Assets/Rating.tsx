@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Slider from '@react-native-community/slider';
 import { View, Text, Button } from 'react-native';
-import AssetList from './AssetList';
+import { AssetList } from './AssetList';
 import { RatingElement } from '../model/RatingElements';
 
 

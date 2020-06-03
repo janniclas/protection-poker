@@ -35,7 +35,6 @@ export default () => {
         updateElement: (index: number, asset: Asset) => {
             const updatedList = [...listElements];
             updatedList[index] = asset;
-            console.log("updated asset list", updatedList);
             setList(updatedList);
         },
 
