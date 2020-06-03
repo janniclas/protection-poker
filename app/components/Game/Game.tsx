@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import AssetView from './Assets/AssetView';
 import { Asset } from './Assets/model/Asset';
+import { ElementHandler } from './model/RatingElements';
+import { Text } from 'react-native';
 
 
 // 1. step should be to add assets relevant for the application
@@ -11,7 +13,8 @@ import { Asset } from './Assets/model/Asset';
 
 const EMPTY_LIST: Asset[] = [];
 enum GameState {
-    ASSETS
+    ASSETS,
+    FEATURES
 }
 
 
@@ -19,25 +22,33 @@ export default () => {
     const [listElements, setList] = useState(EMPTY_LIST);
     const [gameState, setGameState] = useState(GameState.ASSETS);
 
-    const handleAddAsset = (asset: Asset) => {
-        // generate random id for new asset
+    const assetHandler: ElementHandler<Asset> = {
+        addElement: (asset: Asset) => {
+            // generate random id for new asset
 
-        // add asset to local data list
-        setList([...listElements, asset])
-        // TODO: push new asset to server
-    }
+            // add asset to local data list
+            setList([...listElements, asset])
+            // TODO: push new asset to server
+        },
 
 
-    const updateAsset = (index: number, asset: Asset) => {
-        const updatedList = [...listElements];
-        updatedList[index] = asset;
-        console.log("updated asset list", updatedList);
-        setList(updatedList);
+        updateElement: (index: number, asset: Asset) => {
+            const updatedList = [...listElements];
+            updatedList[index] = asset;
+            console.log("updated asset list", updatedList);
+            setList(updatedList);
+        },
+
+        finish: () => {
+            setGameState(GameState.FEATURES)
+        }
     }
 
     switch (gameState) {
         case GameState.ASSETS:
-            return (<AssetView addAssetHandler={handleAddAsset} updateAsset={updateAsset} listElements={listElements}></AssetView>);
+            return (<AssetView assetHandler={assetHandler} listElements={listElements}></AssetView>);
+        case GameState.FEATURES:
+            return (<Text>We need to talk about feature creation now</Text>);
 
     }
 

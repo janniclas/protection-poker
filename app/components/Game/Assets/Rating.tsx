@@ -2,13 +2,9 @@ import React, { useState } from 'react';
 import Slider from '@react-native-community/slider';
 import { View, Text, Button } from 'react-native';
 import AssetList from './AssetList';
+import { RatingElement } from '../model/RatingElements';
 
 
-interface RatingElement {
-    id: string,
-    rating?: number,
-    name: string
-}
 export const values = [0, 1, 2, 3, 5, 8, 20, 50, 100];
 
 export default ({ applyRating, elementsToRate, ratingFinished }:
