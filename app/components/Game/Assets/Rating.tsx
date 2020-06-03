@@ -12,7 +12,7 @@ interface RatingElement {
 export const values = [0, 1, 2, 3, 5, 8, 20, 50, 100];
 
 export default ({ applyRating, elementsToRate, ratingFinished }:
-    { applyRating: (element: RatingElement) => void, elementsToRate: RatingElement[], ratingFinished: () => void }) => {
+    { applyRating: (index: number, asset: RatingElement) => void, elementsToRate: RatingElement[], ratingFinished: () => void }) => {
 
     const [currentIndex, setIndex] = useState(0);
     const [sliderValue, setSliderValue] = useState(0);
@@ -22,7 +22,7 @@ export default ({ applyRating, elementsToRate, ratingFinished }:
 
         element.rating = sliderValue;
         // update current rating element
-        applyRating(element);
+        applyRating(currentIndex, element);
         if (currentIndex < elementsToRate.length - 1) {
             // check if everybody else has rated
             setIndex(currentIndex + 1);

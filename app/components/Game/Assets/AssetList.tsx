@@ -6,9 +6,10 @@ import { Asset } from './model/Asset';
 
   
   function Item( {title, rating}: {title: string, rating?: number} ) {
+    console.log("item to display", title, rating);
     return (
       <View style={styles.item}>
-        <Text style={styles.title}>{title} {rating ? rating : ""}</Text>
+        <Text style={styles.title}>{title} {rating ? " - Value: " + rating : ""}</Text>
       </View>
     );
   }
@@ -18,7 +19,7 @@ export default ({elements}: {elements: Asset[]}) => {
     return (
         <FlatList
         data={elements}
-        renderItem={({ item }) => <Item title={item.name} rating={item.valuePoint} />}
+        renderItem={({ item }) => <Item title={item.name} rating={item.rating} />}
         keyExtractor={item => item.id}
       />
     )

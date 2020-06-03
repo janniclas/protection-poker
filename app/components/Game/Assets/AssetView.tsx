@@ -9,16 +9,12 @@ enum GameState {
     ADD_ASSETS,
     RATE_ASSETS
 }
-export default ({ addAssetHandler, listElements }: { addAssetHandler: (asset: Asset) => void, listElements: Asset[] }) => {
+export default ({ addAssetHandler, listElements, updateAsset }: { addAssetHandler: (asset: Asset) => void, listElements: Asset[], updateAsset: (index: number, asset: Asset) => void }) => {
     const [gameState, setGameState] = useState(GameState.ADD_ASSETS);
 
     const createAsset = (name: string) => {
         const newElement = { id: '' + Math.random(), name: name };
         addAssetHandler(newElement);
-    }
-
-    const applyRating = (element: Asset) => {
-
     }
 
     const finishRating = () => { }
@@ -40,7 +36,7 @@ export default ({ addAssetHandler, listElements }: { addAssetHandler: (asset: As
             );
         case GameState.RATE_ASSETS:
             return (
-                <Rating elementsToRate={listElements} applyRating={applyRating} ratingFinished={finishRating}></Rating>
+                <Rating elementsToRate={listElements} applyRating={updateAsset} ratingFinished={finishRating}></Rating>
             );
     }
 }

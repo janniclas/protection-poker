@@ -1,1 +1,1 @@
-export interface Asset{ id: string; name: string; valuePoint?: number, usedInFeature?: number[] }
+export interface Asset{ id: string; name: string; rating?: number, usedInFeature?: number[] }

@@ -28,10 +28,16 @@ export default () => {
     }
 
 
+    const updateAsset = (index: number, asset: Asset) => {
+        const updatedList = [...listElements];
+        updatedList[index] = asset;
+        console.log("updated asset list", updatedList);
+        setList(updatedList);
+    }
 
     switch (gameState) {
         case GameState.ASSETS:
-            return (<AssetView addAssetHandler={handleAddAsset} listElements={listElements}></AssetView>);
+            return (<AssetView addAssetHandler={handleAddAsset} updateAsset={updateAsset} listElements={listElements}></AssetView>);
 
     }
 
