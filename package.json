@@ -7,6 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest --coverage",
+    "generateOpenApi": "./installOpenApi.sh && ./bin/openapitools/openapi-generator-cli generate -i https://raw.githubusercontent.com/janniclas/protection-poker-backend/master/openApi.json -g typescript-fetch -o app/api",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
@@ -14,12 +15,14 @@
     "@react-native-community/slider": "^3.0.0",
     "@react-navigation/native": "^5.5.0",
     "@react-navigation/stack": "^5.4.1",
+    "@types/socket.io-client": "^1.4.33",
     "react": "16.11.0",
     "react-native": "0.62.2",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-reanimated": "^1.9.0",
     "react-native-safe-area-context": "^3.0.2",
-    "react-native-screens": "^2.8.0"
+    "react-native-screens": "^2.8.0",
+    "socket.io-client": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
