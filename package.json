@@ -7,7 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest --coverage",
-    "generateOpenApi": "./installOpenApi.sh && ./bin/openapitools/openapi-generator-cli generate -i https://raw.githubusercontent.com/janniclas/protection-poker-backend/master/openApi.json -g typescript-fetch -o app/api",
+    "generateOpenApi": "./installOpenApi.sh && ./bin/openapitools/openapi-generator-cli generate -i https://raw.githubusercontent.com/janniclas/protection-poker-backend/master/openApi.json -g typescript-fetch -o app/api/openApi",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {

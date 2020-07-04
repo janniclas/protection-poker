@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import {HOME, RULES, RootStackParamList, GAME} from './config/Routes';
+import { HOME, RULES, RootStackParamList, GAME } from './config/Routes';
 import Home from './components/Home';
 import Rules from './components/Rules';
 import Game from './components/Game/Game';
@@ -17,14 +17,12 @@ const App = () => {
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName={HOME}>
-
           <Stack.Screen name={HOME} component={Home} />
           <Stack.Screen name={GAME} component={Game} />
-          <Stack.Screen name={RULES}  component={Rules} />
-
+          <Stack.Screen name={RULES} component={Rules} />
         </Stack.Navigator>
-        </NavigationContainer>
-      </SafeAreaProvider>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 

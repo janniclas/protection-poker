@@ -69,4 +69,4 @@ coverage
 
 # OpenApi
 /bin
-app/api
+app/api/openApi
