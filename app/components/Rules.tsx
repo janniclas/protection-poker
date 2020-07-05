@@ -1,15 +1,9 @@
 import React from 'react';
 
-import {
-    View,
-    Text,
-    Button,
-    Linking,
-    Alert,
-  } from 'react-native';
+import {View, Text, Button, Linking, Alert} from 'react-native';
 
-
-const URL = 'https://opensource.com/article/19/3/protection-poker-agile-security-game';
+const URL =
+  'https://opensource.com/article/19/3/protection-poker-agile-security-game';
 
 const handlePress = async () => {
   // Checking if the link is supported for links with custom URL scheme.
@@ -25,12 +19,13 @@ const handlePress = async () => {
 };
 
 export default () => {
-    return (
-      <View>
-        <Text>
-         For now we would like to ask you to refere to the Rule provided on the following Website:
-        </Text>
-        <Button title={"Go to Rules"} onPress={handlePress} />
-      </View>
-    )
-  }
+  return (
+    <View>
+      <Text>
+        For now we would like to ask you to refere to the Rule provided on the
+        following Website:
+      </Text>
+      <Button title={'Go to Rules'} onPress={handlePress} />
+    </View>
+  );
+};
