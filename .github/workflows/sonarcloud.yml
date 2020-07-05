@@ -1,15 +1,13 @@
 name: SonarCloud Check
 
-
 on:
   push:
-    branches: [ master, develop, feature/** ]
+    branches: [master, develop, feature/**]
   pull_request:
-    branches: [ master, develop ]
+    branches: [master, develop]
 
 jobs:
   Sonarcloud:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -17,23 +15,23 @@ jobs:
         node-version: [10.x, 12.x]
 
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - run: git fetch origin develop
-    - run: git fetch origin master
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm run generateOpenApi
-    - run: npm test
-      env:
-        CI: true
-    - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: git fetch origin develop
+      - run: git fetch origin master
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm run generateOpenApi
+      - run: npm run prettier
+      - run: npm test
+        env:
+          CI: true
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
