@@ -13,6 +13,7 @@ import { RULES, RootStackParamList, GAME} from './../config/Routes';
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
+import { GameState } from './Game/Game';
 
 
 type HomeScreenNavigationProp = StackNavigationProp<
@@ -45,7 +46,7 @@ export default (prop: Props) => {
   return (
     <View style={styles.body}>
       <Button onPress={ () => {
-          prop.navigation.navigate(GAME);
+          prop.navigation.navigate(GAME, {initialState: GameState.CREATE});
       }
       }
       title="New Game"

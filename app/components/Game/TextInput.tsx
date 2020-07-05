@@ -3,16 +3,16 @@ import { View, TextInput, Button, Alert } from 'react-native';
 
 
 
-export default ({addAssetHandler}: {addAssetHandler: (name: string) => void}) => {
-    const defaultText = 'Enter Asset Name';
+export default ({defaultText, inputHandler}: {defaultText: string, inputHandler: (name: string) => void}) => {
+
     const isDefaultText = (text: string) => text == defaultText;
     const [value, onChangeText] = React.useState(defaultText);
     const finishAdd = () => {
         if(!isDefaultText(value)) {
-            addAssetHandler(value);
+            inputHandler(value);
             onChangeText('');
         } else {
-            Alert.alert('Please provide a meaningfull asset name');
+            Alert.alert('Please provide a meaningfull input.');
         }
     }
     return (
@@ -26,7 +26,7 @@ export default ({addAssetHandler}: {addAssetHandler: (name: string) => void}) =>
             onSubmitEditing={finishAdd}
             value={value}
             />
-            <Button title={'Add Asset'} onPress={finishAdd}/>
+            <Button title={'Create'} onPress={finishAdd}/>
 
         </View>
     )

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Asset } from './model/Asset';
 import { View, Button, Alert } from 'react-native';
-import AddAsset from './AddAsset';
+import AddAsset from '../TextInput';
 import Rating from './Rating';
 import { ElementHandler } from '../model/RatingElements';
 import { AssetList } from './AssetList';
@@ -23,8 +23,8 @@ export default ({ listElements, assetHandler }: { listElements: Asset[], assetHa
         case GameState.ADD_ASSETS:
             return (
                 <View>
-                    <AssetList elements={listElements}/>
-                    <AddAsset addAssetHandler={createAsset} />
+                    <AssetList elements={listElements} />
+                    <AddAsset defaultText='Enter Asset Name' inputHandler={createAsset} />
                     <Button title={"Start Rating"} onPress={() => {
                         if (listElements.length > 0) {
                             setGameState(GameState.RATE_ASSETS)
