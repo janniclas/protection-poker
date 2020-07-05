@@ -1,13 +1,7 @@
 import React from 'react';
 import {View, TextInput, Button, Alert} from 'react-native';
 
-export default ({
-  defaultText,
-  inputHandler,
-}: {
-  defaultText: string;
-  inputHandler: (name: string) => void;
-}) => {
+export default ({defaultText, inputHandler}: {defaultText: string; inputHandler: (name: string) => void}) => {
   const isDefaultText = (text: string) => text === defaultText;
   const [value, onChangeText] = React.useState(defaultText);
 

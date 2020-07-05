@@ -11,13 +11,7 @@ enum GameState {
   RATE_ASSETS,
 }
 
-export default ({
-  listElements,
-  assetHandler,
-}: {
-  listElements: Asset[];
-  assetHandler: ElementHandler<Asset>;
-}) => {
+export default ({listElements, assetHandler}: {listElements: Asset[]; assetHandler: ElementHandler<Asset>}) => {
   const [gameState, setGameState] = useState(GameState.ADD_ASSETS);
 
   const createAsset = (name: string) => {
@@ -37,9 +31,7 @@ export default ({
               if (listElements.length > 0) {
                 setGameState(GameState.RATE_ASSETS);
               } else {
-                Alert.alert(
-                  'You have to add an asset before you can start the rating.',
-                );
+                Alert.alert('You have to add an asset before you can start the rating.');
               }
             }}
           />

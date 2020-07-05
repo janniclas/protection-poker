@@ -4,11 +4,7 @@ import TextInput from './TextInput';
 import {Game} from '../../api/openApi';
 import {useApi} from '../../api/useApi';
 
-export default ({
-  gameCreatedHandler,
-}: {
-  gameCreatedHandler: (game: Game) => void;
-}) => {
+export default ({gameCreatedHandler}: {gameCreatedHandler: (game: Game) => void}) => {
   const api = useApi();
 
   const createGame = (name: string) => {

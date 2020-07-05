@@ -55,9 +55,7 @@ export default ({route}: GameProps) => {
     case GameState.CREATE:
       return <CreateGame gameCreatedHandler={gameCreateHandler} />;
     case GameState.ASSETS:
-      return (
-        <AssetView assetHandler={assetHandler} listElements={listElements} />
-      );
+      return <AssetView assetHandler={assetHandler} listElements={listElements} />;
     case GameState.FEATURES:
       return <Text>We need to talk about feature creation now</Text>;
   }

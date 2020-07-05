@@ -14,13 +14,7 @@ function AssetItem({name, rating}: {name: string; rating?: number}) {
 }
 
 export const AssetList = ({elements}: {elements: Asset[]}) => {
-  return (
-    <FlatList
-      data={elements}
-      renderItem={({item}) => AssetItem(item)}
-      keyExtractor={(item) => item.id}
-    />
-  );
+  return <FlatList data={elements} renderItem={({item}) => AssetItem(item)} keyExtractor={(item) => item.id} />;
 };
 
 const styles = StyleSheet.create({
