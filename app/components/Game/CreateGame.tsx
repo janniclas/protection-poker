@@ -27,9 +27,7 @@ export default ({
   return (
     <View>
       <Text>Let's create a new game.</Text>
-      <TextInput
-        defaultText="Enter Game Name"
-        inputHandler={createGame}></TextInput>
+      <TextInput defaultText="Enter Game Name" inputHandler={createGame} />
     </View>
   );
 };

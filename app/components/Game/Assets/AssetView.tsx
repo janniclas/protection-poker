@@ -50,7 +50,8 @@ export default ({
         <Rating
           elementsToRate={listElements}
           applyRating={assetHandler.updateElement}
-          ratingFinished={assetHandler.finish}></Rating>
+          ratingFinished={assetHandler.finish}
+        />
       );
   }
 };

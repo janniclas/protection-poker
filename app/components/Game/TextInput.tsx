@@ -8,8 +8,9 @@ export default ({
   defaultText: string;
   inputHandler: (name: string) => void;
 }) => {
-  const isDefaultText = (text: string) => text == defaultText;
+  const isDefaultText = (text: string) => text === defaultText;
   const [value, onChangeText] = React.useState(defaultText);
+
   const finishAdd = () => {
     if (!isDefaultText(value)) {
       inputHandler(value);
@@ -18,6 +19,7 @@ export default ({
       Alert.alert('Please provide a meaningfull input.');
     }
   };
+
   return (
     <View>
       <TextInput

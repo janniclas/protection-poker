@@ -48,6 +48,7 @@ export default ({route}: GameProps) => {
   const gameCreateHandler = (createdGame: Game) => {
     setGameState(GameState.ASSETS);
     setGame(createdGame);
+    console.log('game was set' + game);
   };
 
   switch (gameState) {
@@ -55,9 +56,7 @@ export default ({route}: GameProps) => {
       return <CreateGame gameCreatedHandler={gameCreateHandler} />;
     case GameState.ASSETS:
       return (
-        <AssetView
-          assetHandler={assetHandler}
-          listElements={listElements}></AssetView>
+        <AssetView assetHandler={assetHandler} listElements={listElements} />
       );
     case GameState.FEATURES:
       return <Text>We need to talk about feature creation now</Text>;
