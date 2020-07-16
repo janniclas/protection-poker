@@ -1,29 +1,21 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
-import { Asset } from './model/Asset';
+import {View, Text, StyleSheet} from 'react-native';
+import {FlatList} from 'react-native-gesture-handler';
+import {Asset} from './model/Asset';
 
-
-
-function AssetItem({ name, rating }: { name: string, rating?: number }) {
+function AssetItem({name, rating}: {name: string; rating?: number}) {
   return (
     <View style={styles.item}>
-      <Text style={styles.title}>{name} {rating ? " - Value: " + rating : ""}</Text>
+      <Text style={styles.title}>
+        {name} {rating ? ' - Value: ' + rating : ''}
+      </Text>
     </View>
   );
 }
 
 export const AssetList = ({elements}: {elements: Asset[]}) => {
-  return (
-    <FlatList
-    data={elements}
-    renderItem={({ item }) => AssetItem(item)}
-    keyExtractor={item => item.id}
-  />
-  );
-}
-
-
+  return <FlatList data={elements} renderItem={({item}) => AssetItem(item)} keyExtractor={(item) => item.id} />;
+};
 
 const styles = StyleSheet.create({
   item: {
