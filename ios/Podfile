@@ -22,12 +22,3 @@ target 'ProtectionPoker' do
     flipper_post_install(installer)
   end
 end
-
-target 'ProtectionPoker-tvOS' do
-  # Pods for ProtectionPoker-tvOS
-
-  target 'ProtectionPoker-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-end
