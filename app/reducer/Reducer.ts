@@ -1,5 +1,5 @@
-import ApiFactory from 'app/api/ApiFactory';
-import {Game} from 'app/api/openApi';
+import ApiFactory from '../api/ApiFactory';
+import {Game} from '../api/openApi';
 
 export enum ActionTypes {
   CREATE_GAME,

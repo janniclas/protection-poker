@@ -2,8 +2,8 @@ import React, {useContext} from 'react';
 import {Text, View} from 'react-native';
 import TextInput from './TextInput';
 import {Game} from '../../api/openApi';
-import {DispatchContext} from 'app/App';
-import {CreateGameAction} from 'app/reducer/Reducer';
+import {DispatchContext} from '../../App';
+import {CreateGameAction} from '../../reducer/Reducer';
 
 export default ({gameCreatedHandler}: {gameCreatedHandler: (game: Game) => void}) => {
   const {state, dispatch} = useContext(DispatchContext);

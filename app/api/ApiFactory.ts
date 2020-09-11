@@ -1,7 +1,7 @@
 import {DefaultApi, Configuration} from './openApi';
 import {Platform} from 'react-native';
 import {Dispatch} from 'react';
-import {Action, CreateGameResponseAction} from 'app/reducer/Reducer';
+import {Action, CreateGameResponseAction} from '../reducer/Reducer';
 
 export default class ApiFactory {
   private static api: ApiWrapper;

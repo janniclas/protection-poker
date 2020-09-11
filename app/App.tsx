@@ -14,7 +14,7 @@ import ApiFactory from './api/ApiFactory';
 const Stack = createStackNavigator<RootStackParamList>();
 
 const initialState = {gameState: {loading: false}};
-const DispatchContext = createContext<{
+export const DispatchContext = createContext<{
   state: State;
   dispatch: Dispatch<Action>;
 }>({
@@ -22,7 +22,7 @@ const DispatchContext = createContext<{
   dispatch: () => null,
 });
 
-const App = () => {
+export const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   ApiFactory.getInstance(dispatch);
   return (
@@ -39,5 +39,3 @@ const App = () => {
     </SafeAreaProvider>
   );
 };
-
-export {App, DispatchContext};
